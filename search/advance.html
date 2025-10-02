@@ -4,7 +4,134 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Google Advanced Search</title>
-    <link rel="stylesheet" href="style.css">
+    <!-- Combined CSS for guaranteed layout functionality -->
+    <style>
+        :root {
+            --google-blue: #4285f4;
+            --google-red: #ea4335;
+            --google-yellow: #fbbc05;
+            --google-green: #34a853;
+            --background-color: #f8f9fa;
+            --text-color: #202124;
+            --search-border: #dadce0;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: var(--background-color);
+            color: var(--text-color);
+            min-height: 100vh;
+        }
+
+        .nav-links {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+        }
+
+        /* Updated Nav Links (Blue button style) */
+        .nav-links a {
+            text-decoration: none;
+            color: white; 
+            background-color: var(--google-blue); 
+            margin-left: 15px;
+            font-size: 14px;
+            padding: 8px 15px;
+            border-radius: 4px;
+            transition: background-color 0.2s, box-shadow 0.2s;
+            font-weight: 500;
+        }
+
+        .nav-links a:hover {
+            background-color: #357ae8; 
+            box-shadow: 0 1px 3px rgba(0,0,0,0.3); 
+        }
+
+        /* Advanced Search Container */
+        .advanced-container {
+            padding: 50px;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .advanced-title {
+            color: var(--google-red);
+            font-size: 20px;
+            font-weight: 500;
+            border-bottom: 1px solid var(--search-border);
+            padding-bottom: 10px;
+            margin-bottom: 30px;
+        }
+
+        /* Core Grid Fix */
+        .advanced-form {
+            display: grid; 
+            grid-template-columns: 200px 1fr; /* Fixed width label column, flexible input column */
+            align-items: center;
+            gap: 15px 0; /* Add vertical gap between rows */
+        }
+
+        /* Header spans both columns */
+        .field-row-header {
+            grid-column: 1 / span 2; 
+        }
+        
+        .field-row-header h3 {
+            color: var(--text-color);
+            font-size: 16px;
+            font-weight: 700;
+            margin-bottom: 10px;
+            margin-top: 0;
+        }
+
+        .label-text {
+            text-align: left;
+            font-size: 13px;
+            color: #70757a;
+            padding-right: 15px;
+        }
+
+        .advanced-input {
+            width: 100%;
+            padding: 8px 10px;
+            border: 1px solid #d9d9d9;
+            border-radius: 1px;
+            box-sizing: border-box;
+            font-size: 13px;
+        }
+
+        .advanced-input:focus {
+            border-color: var(--google-blue);
+            outline: none;
+        }
+
+        /* Button container alignment */
+        .advanced-button-container {
+            grid-column: 2; /* Aligns button container under the input column */
+            display: flex;
+            justify-content: flex-end; 
+            padding-top: 20px;
+        }
+
+        .advanced-btn {
+            background-color: var(--google-blue);
+            color: white;
+            border: 1px solid var(--google-blue);
+            font-weight: bold;
+            font-size: 13px;
+            padding: 10px 15px;
+            border-radius: 2px;
+            cursor: pointer;
+            transition: background-color 0.2s;
+        }
+
+        .advanced-btn:hover {
+            background-color: #357ae8;
+            box-shadow: 0 1px 1px rgba(0,0,0,0.1);
+        }
+    </style>
 </head>
 <body>
     <div class="nav-links">
@@ -15,30 +142,28 @@
         <h2 class="advanced-title">Google Advanced Search</h2>
 
         <form action="https://www.google.com/search" method="get" class="advanced-form">
+            
             <div class="field-row-header">
                 <h3>Find pages with...</h3>
             </div>
             
-            <div class="field-row">
-                <label for="all-words" class="label-text">all these words:</label>
-                <input type="text" name="as_q" id="all-words" class="advanced-input">
-            </div>
+            <!-- Label (Column 1) and Input (Column 2) for all these words -->
+            <label for="all-words" class="label-text">all these words:</label>
+            <input type="text" name="as_q" id="all-words" class="advanced-input">
 
-            <div class="field-row">
-                <label for="exact-phrase" class="label-text">this exact word or phrase:</label>
-                <input type="text" name="as_epq" id="exact-phrase" class="advanced-input">
-            </div>
+            <!-- Label (Column 1) and Input (Column 2) for exact phrase -->
+            <label for="exact-phrase" class="label-text">this exact word or phrase:</label>
+            <input type="text" name="as_epq" id="exact-phrase" class="advanced-input">
             
-            <div class="field-row">
-                <label for="any-words" class="label-text">any of these words:</label>
-                <input type="text" name="as_oq" id="any-words" class="advanced-input">
-            </div>
+            <!-- Label (Column 1) and Input (Column 2) for any of these words -->
+            <label for="any-words" class="label-text">any of these words:</label>
+            <input type="text" name="as_oq" id="any-words" class="advanced-input">
             
-            <div class="field-row">
-                <label for="none-words" class="label-text">none of these words:</label>
-                <input type="text" name="as_eq" id="none-words" class="advanced-input">
-            </div>
+            <!-- Label (Column 1) and Input (Column 2) for none of these words -->
+            <label for="none-words" class="label-text">none of these words:</label>
+            <input type="text" name="as_eq" id="none-words" class="advanced-input">
 
+            <!-- Button Container (Column 2, aligned right) -->
             <div class="advanced-button-container">
                 <input type="submit" value="Advanced Search" class="advanced-btn">
             </div>
