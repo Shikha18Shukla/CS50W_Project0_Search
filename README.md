@@ -40,3 +40,11 @@ This project is a custom front-end for Google Search, created as part of the CS5
 1. Clone this repository:
    ```bash
    git clone https://github.com/Shikha18Shukla/CS50W_Project0_Search.git
+
+
+
+<img width="1366" height="727" alt="brave_QmEMrUyITi" src="https://github.com/user-attachments/assets/3f21c57e-1e84-4970-84da-22bb3c1b45f5" />
+
+
+
+   
